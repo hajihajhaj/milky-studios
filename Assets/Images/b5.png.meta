@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bed67f90fce9b994bb075a0d7414e5ff
+guid: 6071b6422a9ded942aaaa34b900ad5de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8646626244685678959
-    second: pixelamelia-removebg-preview_0
+      213: -8836564569614028197
+    second: b5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixelamelia-removebg-preview_0
+      name: b5_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 427
-        height: 571
+        width: 320
+        height: 548
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 196b0f30e33010880800000000000000
-      internalID: -8646626244685678959
+      spriteID: b527a5197573e5580800000000000000
+      internalID: -8836564569614028197
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pixelamelia-removebg-preview_0: -8646626244685678959
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
