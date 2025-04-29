@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3453adb993499a1489855c143ac689d1
+guid: 6d5bdbfd8c648dd45b4b390472b29b77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1381256310555428322
-    second: Screenshot 2025-04-27 221054_0
+      213: 9119961761997937374
+    second: pixelkeek-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Screenshot 2025-04-27 221054_0
+      name: pixelkeek-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
-        width: 638
-        height: 637
+        width: 401
+        height: 592
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1ab39924bac4dce0800000000000000
-      internalID: -1381256310555428322
+      spriteID: eda580527ec909e70800000000000000
+      internalID: 9119961761997937374
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Screenshot 2025-04-27 221054_0: -1381256310555428322
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
