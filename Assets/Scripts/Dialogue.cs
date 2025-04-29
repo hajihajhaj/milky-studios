@@ -2,8 +2,10 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class Dialogue : MonoBehaviour
 {
+    [Header("UI")]
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
@@ -11,8 +13,21 @@ public class Dialogue : MonoBehaviour
     public GameObject exitButton;
     public GameObject dialogueBox;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip dialogueTypingSoundClip;
+
+    [SerializeField] private bool stopAudioSource;
+
+    private AudioSource audioSource;
+
     private int index;
     private bool isTyping = false;
+
+    void Awake()
+    {
+        // Get the AudioSource component (required)
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Start()
     {
@@ -42,6 +57,8 @@ public class Dialogue : MonoBehaviour
         foreach (char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
+            PlayDialogueSound(); // play sound on each letter typed
+
             yield return new WaitForSeconds(textSpeed);
         }
 
@@ -103,5 +120,20 @@ public class Dialogue : MonoBehaviour
         if (dialogueBox != null) dialogueBox.SetActive(false);
         if (exitButton != null) exitButton.SetActive(false);
         if (nextLineArrow != null) nextLineArrow.SetActive(false);
+    }
+
+    private void PlayDialogueSound()
+    {
+        if (audioSource != null && dialogueTypingSoundClip != null)
+        {
+            if (!audioSource.isPlaying || stopAudioSource)
+            {
+                // Optional: random pitch
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+
+                audioSource.clip = dialogueTypingSoundClip;
+                audioSource.Play();
+            }
+        }
     }
 }
