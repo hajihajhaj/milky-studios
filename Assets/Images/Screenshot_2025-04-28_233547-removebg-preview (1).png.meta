@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 95af60d551f9d1c47b75012948a26f87
+guid: 4b19a6f191fb0194dbd37bbbacbd6928
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4922234920392237987
-    second: aihaj-removebg-preview_0
+      213: -7358012227098594124
+    second: Screenshot_2025-04-28_233547-removebg-preview (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aihaj-removebg-preview_0
+      name: Screenshot_2025-04-28_233547-removebg-preview (1)_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 0
-        width: 408
-        height: 573
+        x: 19
+        y: 12
+        width: 375
+        height: 526
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a3a00bb49a4f4440800000000000000
-      internalID: 4922234920392237987
+      spriteID: 4b4bec62dd613e990800000000000000
+      internalID: -7358012227098594124
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 18b70289696d2524ba49d6759b3deccc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      aihaj-removebg-preview_0: 4922234920392237987
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerPackages : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class PlayerPackages : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
         Debug.Log("Player Health: " + currentHealth);
 
         if (currentHealth <= 0)
@@ -24,6 +26,12 @@ public class PlayerPackages : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Died!");
-        // Add logic for player death here
+        Invoke("LoadGameOverScene", 1f); // Waits 1 second, then calls LoadGameOverScene
     }
+
+    void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("loser"); // <-- Replace "GameOver" with your scene name
+    }
+
 }

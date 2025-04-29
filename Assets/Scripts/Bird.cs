@@ -4,6 +4,7 @@ public class Bird : MonoBehaviour
 {
     public float speed = 2f;
     public float destroyOffset = 1f;
+    public int damage = 1; // How much damage the bird does
 
     void Update()
     {
@@ -18,17 +19,19 @@ public class Bird : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Bird collided with: " + other.name);
+
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Bird hit player!");  // You should see this in the Console
+            Debug.Log("Bird hit player!");
 
             PlayerPackages health = other.GetComponent<PlayerPackages>();
             if (health != null)
             {
-                health.TakeDamage(1);
+                health.TakeDamage(damage);
             }
 
-            Destroy(gameObject);
+            Destroy(gameObject); // Bird disappears after hitting the player
         }
     }
 }
