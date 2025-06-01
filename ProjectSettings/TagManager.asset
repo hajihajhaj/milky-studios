@@ -45,5 +45,8 @@ TagManager:
   - name: building
     uniqueID: 382093369
     locked: 0
+  - name: player
+    uniqueID: 493683787
+    locked: 0
   m_RenderingLayers:
   - Default

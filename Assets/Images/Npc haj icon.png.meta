@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Npc haj icon_0: -7656767341078489952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

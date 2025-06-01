@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Npc keek icon_0: -8229528686186080455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

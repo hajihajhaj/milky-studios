@@ -1,37 +1,46 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine;
 
 public class PlayerPackages : MonoBehaviour
 {
-    public int maxHealth = 3;
-    public int currentHealth;
+    public int maxPackages = 4;
+    public int currentPackages;
+    public int packagesDelivered = 0; // NEW
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentPackages = maxPackages;
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-        Debug.Log("Player Health: " + currentHealth);
+        currentPackages = Mathf.Clamp(currentPackages - amount, 0, maxPackages);
+        Debug.Log("Package Lost. Remaining: " + currentPackages);
 
-        if (currentHealth <= 0)
+        if (currentPackages <= 0)
         {
             Die();
+        }
+    }
+
+    public void DeliverPackage()
+    {
+        if (currentPackages > 0)
+        {
+            packagesDelivered++;
+            currentPackages--; // reduce box
+            Debug.Log("Package Delivered! Total: " + packagesDelivered);
         }
     }
 
     void Die()
     {
         Debug.Log("Player Died!");
-        Invoke("LoadGameOverScene", 1f); // Waits 1 second, then calls LoadGameOverScene
+        Invoke("LoadGameOverScene", 1f);
     }
 
     void LoadGameOverScene()
     {
-        SceneManager.LoadScene("loser"); // <-- Replace "GameOver" with your scene name
+        SceneManager.LoadScene("loser");
     }
-
 }
