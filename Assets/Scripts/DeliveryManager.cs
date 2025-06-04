@@ -1,7 +1,5 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
@@ -16,10 +14,19 @@ public class DeliveryManager : MonoBehaviour
     public PhoneUIController phoneUI;
     public List<Delivery> deliveries = new List<Delivery>();
 
+    public List<NPCUIController> npcUIControllers; // Assign NPC UI controllers in Inspector
+
     private int currentDeliveryIndex = 0;
 
     void Start()
     {
+        // Subscribe to all Dialogue components' close events
+        Dialogue[] dialogues = FindObjectsOfType<Dialogue>();
+        foreach (Dialogue dialogue in dialogues)
+        {
+            dialogue.onDialogueClosedWithID.AddListener(OnDialogueClosed);
+        }
+
         if (deliveries.Count > 0)
         {
             StartDelivery(currentDeliveryIndex);
@@ -34,6 +41,16 @@ public class DeliveryManager : MonoBehaviour
             {
                 deliveries[currentDeliveryIndex].completed = true;
                 phoneUI.CompleteDelivery();
+
+                // Hide the NPC UI for this npcID
+                foreach (var npcUI in npcUIControllers)
+                {
+                    if (npcUI.npcID == npcID)
+                    {
+                        npcUI.HideUI();
+                        break;
+                    }
+                }
 
                 currentDeliveryIndex++;
 
@@ -52,6 +69,16 @@ public class DeliveryManager : MonoBehaviour
     private void StartDelivery(int index)
     {
         phoneUI.StartNewDelivery(deliveries[index].customerFace);
+
+        // Optionally show the NPC UI again if you want
+        foreach (var npcUI in npcUIControllers)
+        {
+            if (npcUI.npcID == deliveries[index].npcID)
+            {
+                npcUI.ShowUI();
+                break;
+            }
+        }
     }
 
     public void SkipCurrentDelivery()

@@ -970,6 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 119251770}
+  - component: {fileID: 119251771}
   m_Layer: 0
   m_Name: NPCunc
   m_TagString: Untagged
@@ -991,9 +992,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1345109390}
-  - {fileID: 1623860901}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119251771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119251769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f2a5aa7d33b049bbf875d44a003a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcImageObject: {fileID: 1345109386}
+  deliverButtonObject: {fileID: 1721490894}
+  npcID: 4
 --- !u!1 &123385112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,12 +4012,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637808938}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.08155005, y: 2.775507, z: -45.38012}
-  m_LocalScale: {x: 5.4467483, y: 1.2995424, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 58.38, y: 1.6999999, z: -4.538012}
+  m_LocalScale: {x: 0.77479994, y: 0.8060839, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 741245152}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646391818
 GameObject:
@@ -4610,6 +4625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 741245152}
+  - component: {fileID: 741245153}
   m_Layer: 0
   m_Name: NPCAme
   m_TagString: Untagged
@@ -4631,9 +4647,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1300099893}
-  - {fileID: 637808942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &741245153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741245151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f2a5aa7d33b049bbf875d44a003a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcImageObject: {fileID: 1300099889}
+  deliverButtonObject: {fileID: 861626960}
+  npcID: 2
 --- !u!1 &755014795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,6 +6938,11 @@ MonoBehaviour:
   - npcID: 4
     customerFace: {fileID: -5321902905532850276, guid: 004a18fd6c3a18847acedb3a14c818e7, type: 3}
     completed: 0
+  npcUIControllers:
+  - {fileID: 1180110472}
+  - {fileID: 741245153}
+  - {fileID: 1247603192}
+  - {fileID: 119251771}
 --- !u!4 &992618336
 Transform:
   m_ObjectHideFlags: 0
@@ -7765,6 +7800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1180110471}
+  - component: {fileID: 1180110472}
   m_Layer: 0
   m_Name: NPChajar
   m_TagString: Untagged
@@ -7786,9 +7822,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1528252288}
-  - {fileID: 1561536903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180110472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180110470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f2a5aa7d33b049bbf875d44a003a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcImageObject: {fileID: 1528252287}
+  deliverButtonObject: {fileID: 1703117454}
+  npcID: 1
 --- !u!1 &1191496455
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,6 +8085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247603191}
+  - component: {fileID: 1247603192}
   m_Layer: 0
   m_Name: NPCkeek
   m_TagString: Untagged
@@ -8056,9 +8107,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1935712132}
-  - {fileID: 1277113756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1247603192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247603190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c5f2a5aa7d33b049bbf875d44a003a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcImageObject: {fileID: 1935712128}
+  deliverButtonObject: {fileID: 1310219802}
+  npcID: 3
 --- !u!1 &1268586942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8382,7 +8447,7 @@ GameObject:
   - component: {fileID: 1277113754}
   - component: {fileID: 1277113753}
   m_Layer: 0
-  m_Name: chimney 3
+  m_Name: keekschimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8471,11 +8536,11 @@ Transform:
   m_GameObject: {fileID: 1277113752}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 77.8316, y: 6.254401, z: -4.538012}
+  m_LocalScale: {x: 0.77479994, y: 0.8060839, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1247603191}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300099889
 GameObject:
@@ -10791,11 +10856,11 @@ Transform:
   m_GameObject: {fileID: 1561536899}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 31.0916, y: 5.8, z: -4.538012}
+  m_LocalScale: {x: 0.7748, y: 0.80608386, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1180110471}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561898461
 GameObject:
@@ -11406,7 +11471,7 @@ GameObject:
   - component: {fileID: 1623860899}
   - component: {fileID: 1623860898}
   m_Layer: 0
-  m_Name: chimney 4
+  m_Name: uncschimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11495,11 +11560,11 @@ Transform:
   m_GameObject: {fileID: 1623860897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.670631, y: -3.51, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 96.1716, y: 3.4250467, z: -4.538012}
+  m_LocalScale: {x: 0.77479994, y: 0.8060839, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 119251770}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685679887
 GameObject:
@@ -12052,7 +12117,7 @@ GameObject:
   - component: {fileID: 1721490897}
   - component: {fileID: 1721490896}
   m_Layer: 0
-  m_Name: Deliver button 3 (1)
+  m_Name: Deliver button 4
   m_TagString: ChimneyArrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14808,10 +14873,13 @@ SceneRoots:
   - {fileID: 959275170}
   - {fileID: 923169389}
   - {fileID: 1180110471}
+  - {fileID: 1561536903}
   - {fileID: 741245152}
+  - {fileID: 637808942}
   - {fileID: 1247603191}
+  - {fileID: 1277113756}
   - {fileID: 119251770}
-  - {fileID: 992618336}
+  - {fileID: 1623860901}
   - {fileID: 603683623}
   - {fileID: 1408997901}
   - {fileID: 2101995815}
@@ -14819,5 +14887,6 @@ SceneRoots:
   - {fileID: 144629159}
   - {fileID: 1489864099631496683}
   - {fileID: 438436429}
+  - {fileID: 992618336}
   - {fileID: 985159091}
   - {fileID: 549578904}
