@@ -6674,7 +6674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 799940463}
   countDown: 0
-  timeLimit: 20
+  timeLimit: 150
   loserScreen: {fileID: 1335012922}
 --- !u!4 &985159091
 Transform:
