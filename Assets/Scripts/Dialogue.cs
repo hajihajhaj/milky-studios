@@ -18,8 +18,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private bool stopAudioSource = false;
 
     [Header("Delivery Reaction Settings")]
-    public float sassyThreshold = 60f;
-    public float angryThreshold = 30f;
+    public float sassyThreshold = 20f; //sassy response
+    public float angryThreshold = 15f; //angry response
 
     [Header("Dialogue Lines")]
     [TextArea(2, 5)] public string[] niceLines;
@@ -55,6 +55,9 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
+        // Hide phone UI when dialogue starts
+        PhoneUIController.Instance?.HidePhoneUI();
+
         if (dialogueBox != null) dialogueBox.SetActive(true);
         if (exitButton != null) exitButton.SetActive(false);
 
@@ -164,6 +167,9 @@ public class Dialogue : MonoBehaviour
         if (nextLineArrow != null) nextLineArrow.SetActive(false);
 
         onDialogueClosedWithID?.Invoke(npcID);
+
+        // Show phone UI when dialogue closes
+        PhoneUIController.Instance?.ShowPhoneUI();
     }
 
     private void PlayDialogueSound()

@@ -44,7 +44,6 @@ public class DeliveryManager : MonoBehaviour
                 else
                 {
                     Debug.Log("All deliveries done!");
-                    // Optionally clear or hide phone UI here
                 }
             }
         }
@@ -53,5 +52,19 @@ public class DeliveryManager : MonoBehaviour
     private void StartDelivery(int index)
     {
         phoneUI.StartNewDelivery(deliveries[index].customerFace);
+    }
+
+    public void SkipCurrentDelivery()
+    {
+        currentDeliveryIndex++;
+
+        if (currentDeliveryIndex < deliveries.Count)
+        {
+            StartDelivery(currentDeliveryIndex);
+        }
+        else
+        {
+            Debug.Log("All deliveries done!");
+        }
     }
 }

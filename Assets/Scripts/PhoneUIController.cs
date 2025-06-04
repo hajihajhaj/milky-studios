@@ -11,17 +11,18 @@ public class PhoneUIController : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Image customerImage;
     public TextMeshProUGUI deliveryCountText;
+    public GameObject nextCustomerButton;
 
     [Header("Delivery Info")]
-    public float deliveryTime = 120f; // 2 minutes
+    public float deliveryTime = 30f; // 30 seconds per delivery
     private float timeLeft;
     private bool isTiming = false;
 
     private int deliveriesCompleted = 0;
-    public int totalDeliveries = 3;
+    public int totalDeliveries = 4;
 
-    private Color originalTimerColor;  // Store original color of timer text
-    private Color defaultTimerColor = Color.black;  // fallback default color
+    private Color originalTimerColor;
+    private Color defaultTimerColor = Color.black;
 
     void Awake()
     {
@@ -35,7 +36,6 @@ public class PhoneUIController : MonoBehaviour
     {
         phoneUI.SetActive(true);
 
-        // Save original color or fallback to black if null/transparent
         if (timerText != null && timerText.color.a > 0)
             originalTimerColor = timerText.color;
         else
@@ -46,6 +46,9 @@ public class PhoneUIController : MonoBehaviour
         UpdateDeliveryCountUI();
         timeLeft = deliveryTime;
         UpdateTimerUI();
+
+        if (nextCustomerButton != null)
+            nextCustomerButton.SetActive(false);
     }
 
     void Update()
@@ -53,7 +56,16 @@ public class PhoneUIController : MonoBehaviour
         if (isTiming)
         {
             timeLeft -= Time.deltaTime;
-            if (timeLeft < 0f) timeLeft = 0f;
+
+            if (timeLeft <= 0f)
+            {
+                timeLeft = 0f;
+                isTiming = false;
+
+                if (nextCustomerButton != null)
+                    nextCustomerButton.SetActive(true);
+            }
+
             UpdateTimerUI();
         }
     }
@@ -64,12 +76,11 @@ public class PhoneUIController : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         timerText.text = $"{minutes:00}:{seconds:00}";
 
-        // Update timer color based on remaining time
-        if (timeLeft <= 30f)
+        if (timeLeft <= 15f)
         {
             timerText.color = Color.red;
         }
-        else if (timeLeft <= 60f)
+        else if (timeLeft <= 20f)
         {
             timerText.color = Color.yellow;
         }
@@ -87,23 +98,52 @@ public class PhoneUIController : MonoBehaviour
     public void StartNewDelivery(Sprite newCustomerFace)
     {
         customerImage.sprite = newCustomerFace;
-        timeLeft = deliveryTime; // reset timer
+        timeLeft = deliveryTime;
         isTiming = true;
-        timerText.color = originalTimerColor;  // Reset color to original at start of delivery
+        timerText.color = originalTimerColor;
         UpdateTimerUI();
         UpdateDeliveryCountUI();
+
+        if (nextCustomerButton != null)
+            nextCustomerButton.SetActive(false);
     }
 
     public void CompleteDelivery()
     {
         isTiming = false;
         deliveriesCompleted++;
-        timerText.color = originalTimerColor;  // Reset color when delivery completed
+        timerText.color = originalTimerColor;
         UpdateDeliveryCountUI();
+    }
+
+    public void OnNextCustomerButtonPressed()
+    {
+        if (nextCustomerButton != null)
+            nextCustomerButton.SetActive(false);
+
+        // Tell DeliveryManager to skip to the next delivery (without marking current one complete)
+        DeliveryManager deliveryManager = FindObjectOfType<DeliveryManager>();
+        if (deliveryManager != null)
+        {
+            deliveryManager.SkipCurrentDelivery();
+        }
     }
 
     public float GetTimeLeft()
     {
         return timeLeft;
+    }
+
+    // New methods to show/hide phone UI
+    public void HidePhoneUI()
+    {
+        if (phoneUI != null)
+            phoneUI.SetActive(false);
+    }
+
+    public void ShowPhoneUI()
+    {
+        if (phoneUI != null)
+            phoneUI.SetActive(true);
     }
 }
