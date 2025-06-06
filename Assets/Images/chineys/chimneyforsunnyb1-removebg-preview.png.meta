@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 44ded918b707f16418b0c1ce3fa8fa95
+guid: 38b078aec8b1e8e4ebbb76258d9ad002
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1288304490412048813
-    second: chimneyforb4-removebg-preview_0
+      213: -4235507762740713673
+    second: chimneyforsunnyb1-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chimneyforb4-removebg-preview_0
+      name: chimneyforsunnyb1-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 60
-        width: 378
-        height: 492
+        x: 23
+        y: 41
+        width: 386
+        height: 499
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35ef27644e50f1ee0800000000000000
-      internalID: -1288304490412048813
+      spriteID: 7372e6661247835c0800000000000000
+      internalID: -4235507762740713673
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chimneyforb4-removebg-preview_0: -1288304490412048813
+      chimneyforsunnyb1-removebg-preview_0: -4235507762740713673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

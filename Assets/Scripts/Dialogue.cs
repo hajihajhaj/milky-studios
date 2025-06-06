@@ -18,8 +18,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private bool stopAudioSource = false;
 
     [Header("Delivery Reaction Settings")]
-    public float sassyThreshold = 20f; //sassy response
-    public float angryThreshold = 15f; //angry response
+    public float sassyThreshold = 20f;
+    public float angryThreshold = 15f;
 
     [Header("Dialogue Lines")]
     [TextArea(2, 5)] public string[] niceLines;
@@ -55,15 +55,20 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()
     {
-        // Hide phone UI when dialogue starts
+        // ✅ Check if this NPC is the correct delivery target
+        DeliveryManager deliveryManager = FindObjectOfType<DeliveryManager>();
+        if (deliveryManager != null && deliveryManager.GetCurrentDeliveryNPCID() != npcID)
+        {
+            MessageUI.Instance.ShowMessage("Wrong house!", 2f);
+            return; // Block dialogue from starting
+        }
+
         PhoneUIController.Instance?.HidePhoneUI();
 
         if (dialogueBox != null) dialogueBox.SetActive(true);
         if (exitButton != null) exitButton.SetActive(false);
 
         float timeLeft = PhoneUIController.Instance != null ? PhoneUIController.Instance.GetTimeLeft() : 120f;
-
-        Debug.Log($"StartDialogue(): Time left on delivery: {timeLeft}");
 
         UpdateTimerVisual(timeLeft);
         ChooseLinesBasedOnTimeLeft(timeLeft);
@@ -82,11 +87,11 @@ public class Dialogue : MonoBehaviour
         timerTextComponent.text = $"{minutes:00}:{seconds:00}";
 
         if (timeLeft <= angryThreshold)
-            timerTextComponent.color = new Color(1f, 0.5f, 0f); // Orange
+            timerTextComponent.color = new Color(1f, 0.5f, 0f);
         else if (timeLeft <= sassyThreshold)
             timerTextComponent.color = Color.yellow;
         else
-            timerTextComponent.color = new Color(0.9f, 0.9f, 0.9f); // Light gray
+            timerTextComponent.color = new Color(0.9f, 0.9f, 0.9f);
     }
 
     private void ChooseLinesBasedOnTimeLeft(float timeLeft)
@@ -94,17 +99,14 @@ public class Dialogue : MonoBehaviour
         if (timeLeft > sassyThreshold)
         {
             activeLines = niceLines.Length > 0 ? niceLines : new string[] { "Thanks for being on time!" };
-            Debug.Log("Dialogue: NICE");
         }
         else if (timeLeft > angryThreshold)
         {
             activeLines = sassyLines.Length > 0 ? sassyLines : new string[] { "Cutting it close, huh?" };
-            Debug.Log("Dialogue: SASSY");
         }
         else
         {
             activeLines = angryLines.Length > 0 ? angryLines : new string[] { "Are you kidding me?!" };
-            Debug.Log("Dialogue: ANGRY");
         }
     }
 
@@ -167,8 +169,6 @@ public class Dialogue : MonoBehaviour
         if (nextLineArrow != null) nextLineArrow.SetActive(false);
 
         onDialogueClosedWithID?.Invoke(npcID);
-
-        // Show phone UI when dialogue closes
         PhoneUIController.Instance?.ShowPhoneUI();
     }
 
