@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/win.unity
     guid: 0cbd64d8359207b4b8f5644cd5c6f41c
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
     path: Assets/Scenes/sunny level.unity
     guid: 428729e211f84914d8b2cd061e7e2d2e
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/rainy level.unity
     guid: 469cb052df3fcb84b8a6cd43debc3001

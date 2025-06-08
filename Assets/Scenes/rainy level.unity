@@ -5162,7 +5162,7 @@ MonoBehaviour:
   customerImage: {fileID: 958690602}
   deliveryCountText: {fileID: 1992064645}
   nextCustomerButton: {fileID: 1951399284}
-  deliveryTime: 30
+  deliveryTime: 20
   totalDeliveries: 4
 --- !u!224 &36475959
 RectTransform:
@@ -11149,6 +11149,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299d6a4885c80494eb2be77cf967abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullBox: {fileID: -8855126969080831650, guid: a357cb9192feec24c9a8539f51ead488, type: 3}
+  emptyBox: {fileID: -8224178307370445109, guid: edcf8f91fe5de034a8084bc52e44102e, type: 3}
+  deliveredBox: {fileID: 4998245810857210088, guid: c798ce4c81ae10a46bc39b7a1630522c, type: 3}
+  boxes:
+  - {fileID: 97329418}
+  - {fileID: 1202844799}
+  - {fileID: 1217619559}
+  - {fileID: 1989464602}
+  playerPackages: {fileID: 962168861}
 --- !u!114 &962168861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11772,7 +11781,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birdPrefab: {fileID: 2019719340584761734, guid: c64c8f42242115e46a0cadfb9a68cc99, type: 3}
-  spawnInterval: 3
+  spawnInterval: 1
+  birdSpeed: 4
   minYViewport: 0.7
   maxYViewport: 0.95
 --- !u!4 &1018376707
@@ -12438,11 +12448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2906344156253993697, guid: a195fb29b1d36a8408c245efd3b14164, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.02
+      value: -7.1
       objectReference: {fileID: 0}
     - target: {fileID: 2906344156253993697, guid: a195fb29b1d36a8408c245efd3b14164, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.02
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 2906344156253993697, guid: a195fb29b1d36a8408c245efd3b14164, type: 3}
       propertyPath: m_LocalPosition.z

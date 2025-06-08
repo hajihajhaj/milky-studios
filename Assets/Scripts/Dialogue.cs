@@ -170,6 +170,13 @@ public class Dialogue : MonoBehaviour
 
         onDialogueClosedWithID?.Invoke(npcID);
         PhoneUIController.Instance?.ShowPhoneUI();
+
+        // ✅ Deliver after dialogue closes
+        PlayerPackages player = FindObjectOfType<PlayerPackages>();
+        if (player != null)
+        {
+            player.DeliverPackage();
+        }
     }
 
     private void PlayDialogueSound()

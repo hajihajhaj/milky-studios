@@ -6,17 +6,18 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Start the dialogue
         if (dialogueScript != null)
         {
             dialogueScript.StartDialogue();
         }
 
-        // Deliver the package
+        // ? REMOVE this section:
+        /*
         PlayerPackages player = FindObjectOfType<PlayerPackages>();
         if (player != null)
         {
             player.DeliverPackage();
         }
+        */
     }
 }

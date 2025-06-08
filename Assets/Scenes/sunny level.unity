@@ -555,7 +555,7 @@ MonoBehaviour:
   starLossInterval: 30
   maxStars: 5
   timeLimit: 30
-  timePenaltyInterval: 15
+  timePenaltyInterval: 30
 --- !u!114 &51547998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,6 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdPrefab: {fileID: 2019719340584761734, guid: c64c8f42242115e46a0cadfb9a68cc99, type: 3}
   spawnInterval: 3
+  birdSpeed: 2
   minYViewport: 0.7
   maxYViewport: 0.95
 --- !u!4 &292837612
@@ -1601,8 +1602,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292837610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7926836, y: 2.0802953, z: 0.087302364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.7926636, y: 2.080322, z: 0.087302364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5161,8 +5162,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScreen: {fileID: 1484416608}
   playableScenes:
-  - SampleScene
   - sunny level
+  - SampleScene
   - rainy level
 --- !u!114 &773262985
 MonoBehaviour:
@@ -6362,17 +6363,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.011797667, y: 0.5407047}
+  m_Offset: {x: 0.050430894, y: -0.019315004}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.19}
+    oldSize: {x: 5.24, y: 4.36}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 10.275473, y: 8.59547}
+  m_Size: {x: 4.8412085, y: 4.3642125}
   m_EdgeRadius: 0
 --- !u!114 &856047716
 MonoBehaviour:
@@ -6431,7 +6432,7 @@ SpriteRenderer:
   m_SortingLayerID: 382093369
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 248923622793940623, guid: 16eb2eb2763b1314b8ca776b1d0901c8, type: 3}
+  m_Sprite: {fileID: 8634184205935305553, guid: 268f84617503b22418e8175fbbbacc29, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6451,8 +6452,8 @@ Transform:
   m_GameObject: {fileID: 856047714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 114.91, y: 4.12, z: 0}
-  m_LocalScale: {x: 0.9876768, y: 0.9876768, z: 0.9876768}
+  m_LocalPosition: {x: 114.92, y: 4.97, z: 0}
+  m_LocalScale: {x: 1.9444394, y: 1.9444394, z: 1.9444394}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1822369441}
@@ -10146,6 +10147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299d6a4885c80494eb2be77cf967abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullBox: {fileID: -8855126969080831650, guid: a357cb9192feec24c9a8539f51ead488, type: 3}
+  emptyBox: {fileID: -8224178307370445109, guid: edcf8f91fe5de034a8084bc52e44102e, type: 3}
+  deliveredBox: {fileID: 4998245810857210088, guid: c798ce4c81ae10a46bc39b7a1630522c, type: 3}
+  boxes:
+  - {fileID: 688057241}
+  - {fileID: 515696913}
+  - {fileID: 369022136}
+  - {fileID: 439500671}
+  playerPackages: {fileID: 1380539914}
 --- !u!114 &1380539914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12752,8 +12762,8 @@ Transform:
   m_GameObject: {fileID: 1822369440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.287897, y: -7.1297, z: 0}
-  m_LocalScale: {x: 12.825654, y: 7.4613714, z: 1}
+  m_LocalPosition: {x: -0.6593148, y: -3.98, z: 0}
+  m_LocalScale: {x: 6.514783, y: 3.789999, z: 0.5079494}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 856047718}
@@ -12849,7 +12859,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.15686275, g: 0.1137255, b: 0.08627451, a: 1}
+  m_Color: {r: 0.31764707, g: 0.28235295, b: 0.227451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -14362,7 +14372,7 @@ MonoBehaviour:
   customerImage: {fileID: 841821260}
   deliveryCountText: {fileID: 550808643}
   nextCustomerButton: {fileID: 965204637}
-  deliveryTime: 30
+  deliveryTime: 40
   totalDeliveries: 4
 --- !u!224 &2102771224
 RectTransform:

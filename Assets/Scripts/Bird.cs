@@ -4,7 +4,7 @@ public class Bird : MonoBehaviour
 {
     public float speed = 2f;
     public float destroyOffset = 1f;
-    public int damage = 1; // How much damage the bird does
+    public int damage = 1;
 
     void Update()
     {
@@ -31,7 +31,12 @@ public class Bird : MonoBehaviour
                 health.TakeDamage(damage);
             }
 
-            Destroy(gameObject); // Bird disappears after hitting the player
+            Destroy(gameObject);
         }
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }

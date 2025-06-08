@@ -37,8 +37,10 @@ public class GameManager : MonoBehaviour
 
     public void FinishLevel()
     {
-        int stars = DeliveryRating.Instance.CalculateStars(elapsedTime, packagesDelivered, totalPackages);
+        int stars = DeliveryRating.Instance.CalculateFinalStars();
         PlayerPrefs.SetInt("StarsEarned", stars);
         SceneManager.LoadScene(winSceneName);
     }
+
+
 }
