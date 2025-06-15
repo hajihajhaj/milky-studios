@@ -14,7 +14,7 @@ public class PhoneUIController : MonoBehaviour
     public GameObject nextCustomerButton;
 
     [Header("Delivery Info")]
-    public float deliveryTime = 30f; // 30 seconds per delivery
+    public float deliveryTime = 30f; // Default time per delivery
     private float timeLeft;
     private bool isTiming = false;
 
@@ -23,6 +23,15 @@ public class PhoneUIController : MonoBehaviour
 
     private Color originalTimerColor;
     private Color defaultTimerColor = Color.black;
+
+    [Header("Popup UI")]
+    public GameObject popupPanel; // The whole panel GameObject
+    public TextMeshProUGUI popupText; // The TMP text inside the panel
+    public float popupDuration = 2f;
+
+    [Header("Custom Thresholds")]
+    public float yellowThreshold = 15f;
+    public float redThreshold = 10f;
 
     void Awake()
     {
@@ -49,6 +58,9 @@ public class PhoneUIController : MonoBehaviour
 
         if (nextCustomerButton != null)
             nextCustomerButton.SetActive(false);
+
+        if (popupPanel != null)
+            popupPanel.SetActive(false);
     }
 
     void Update()
@@ -76,11 +88,11 @@ public class PhoneUIController : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         timerText.text = $"{minutes:00}:{seconds:00}";
 
-        if (timeLeft <= 15f)
+        if (timeLeft <= redThreshold)
         {
             timerText.color = Color.red;
         }
-        else if (timeLeft <= 20f)
+        else if (timeLeft <= yellowThreshold)
         {
             timerText.color = Color.yellow;
         }
@@ -92,7 +104,7 @@ public class PhoneUIController : MonoBehaviour
 
     void UpdateDeliveryCountUI()
     {
-        deliveryCountText.text = $"Delivery {deliveriesCompleted}/{totalDeliveries}";
+        deliveryCountText.text = $"Deliveries {deliveriesCompleted}/{totalDeliveries}";
     }
 
     public void StartNewDelivery(Sprite newCustomerFace)
@@ -121,7 +133,6 @@ public class PhoneUIController : MonoBehaviour
         if (nextCustomerButton != null)
             nextCustomerButton.SetActive(false);
 
-        // Tell DeliveryManager to skip to the next delivery (without marking current one complete)
         DeliveryManager deliveryManager = FindObjectOfType<DeliveryManager>();
         if (deliveryManager != null)
         {
@@ -134,7 +145,6 @@ public class PhoneUIController : MonoBehaviour
         return timeLeft;
     }
 
-    // New methods to show/hide phone UI
     public void HidePhoneUI()
     {
         if (phoneUI != null)
@@ -145,5 +155,23 @@ public class PhoneUIController : MonoBehaviour
     {
         if (phoneUI != null)
             phoneUI.SetActive(true);
+    }
+
+    // New: Show a popup using panel + TMP
+    public void ShowPopup(string message)
+    {
+        if (popupPanel != null && popupText != null)
+        {
+            popupText.text = message;
+            popupPanel.SetActive(true);
+            CancelInvoke(nameof(HidePopup));
+            Invoke(nameof(HidePopup), popupDuration);
+        }
+    }
+
+    void HidePopup()
+    {
+        if (popupPanel != null)
+            popupPanel.SetActive(false);
     }
 }

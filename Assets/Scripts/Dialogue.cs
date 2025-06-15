@@ -18,8 +18,8 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private bool stopAudioSource = false;
 
     [Header("Delivery Reaction Settings")]
-    public float sassyThreshold = 20f;
-    public float angryThreshold = 15f;
+    public float sassyThreshold = 15f;
+    public float angryThreshold = 10f;
 
     [Header("Dialogue Lines")]
     [TextArea(2, 5)] public string[] niceLines;

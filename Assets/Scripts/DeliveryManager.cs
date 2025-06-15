@@ -79,15 +79,34 @@ public class DeliveryManager : MonoBehaviour
 
     public void SkipCurrentDelivery()
     {
-        currentDeliveryIndex++;
-
         if (currentDeliveryIndex < deliveries.Count)
         {
-            StartDelivery(currentDeliveryIndex);
-        }
-        else
-        {
-            Debug.Log("All deliveries done!");
+            // Hide the NPC UI for the skipped delivery
+            int skippedNPCID = deliveries[currentDeliveryIndex].npcID;
+
+            foreach (var npcUI in npcUIControllers)
+            {
+                if (npcUI.npcID == skippedNPCID)
+                {
+                    npcUI.HideUI();
+                    break;
+                }
+            }
+
+            // Mark as completed so it won't be delivered later
+            deliveries[currentDeliveryIndex].completed = true;
+
+            // Move to the next delivery
+            currentDeliveryIndex++;
+
+            if (currentDeliveryIndex < deliveries.Count)
+            {
+                StartDelivery(currentDeliveryIndex);
+            }
+            else
+            {
+                Debug.Log("All deliveries done!");
+            }
         }
     }
 

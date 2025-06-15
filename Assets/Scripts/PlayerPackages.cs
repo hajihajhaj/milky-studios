@@ -5,20 +5,11 @@ public class PlayerPackages : MonoBehaviour
 {
     public int maxPackages = 4;
     public int currentPackages;
-    public int packagesDelivered = 0;
-
-    [Header("Delivery Management")]
-    public DeliveryManager deliveryManager; // new
+    public int packagesDelivered = 0; // NEW
 
     void Start()
     {
         currentPackages = maxPackages;
-
-        // Find DeliveryManager if not set in Inspector
-        if (deliveryManager == null)
-        {
-            deliveryManager = FindObjectOfType<DeliveryManager>();
-        }
     }
 
     public void TakeDamage(int amount)
@@ -26,10 +17,16 @@ public class PlayerPackages : MonoBehaviour
         currentPackages = Mathf.Clamp(currentPackages - amount, 0, maxPackages);
         Debug.Log("Package Lost. Remaining: " + currentPackages);
 
-        // Lose the current delivery too
+        // Show popup message when player loses a package
+        if (PhoneUIController.Instance != null)
+        {
+            PhoneUIController.Instance.ShowPopup("Package dropped!");
+        }
+
+        // Skip the current delivery so the NPC disappears
+        DeliveryManager deliveryManager = FindObjectOfType<DeliveryManager>();
         if (deliveryManager != null)
         {
-            Debug.Log("Lost NPC package due to damage! Skipping to next delivery.");
             deliveryManager.SkipCurrentDelivery();
         }
 
@@ -44,7 +41,7 @@ public class PlayerPackages : MonoBehaviour
         if (currentPackages > 0)
         {
             packagesDelivered++;
-            currentPackages--;
+            currentPackages--; // reduce box
             Debug.Log("Package Delivered! Total: " + packagesDelivered);
         }
     }
