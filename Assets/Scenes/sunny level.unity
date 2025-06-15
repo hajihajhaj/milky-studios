@@ -10295,6 +10295,7 @@ MonoBehaviour:
   maxPackages: 4
   currentPackages: 0
   packagesDelivered: 0
+  deliveryManager: {fileID: 307055270}
 --- !u!1 &1394989367
 GameObject:
   m_ObjectHideFlags: 0
