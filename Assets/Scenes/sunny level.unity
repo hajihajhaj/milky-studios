@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 51547998}
   - component: {fileID: 51547997}
   - component: {fileID: 51547996}
+  - component: {fileID: 51548001}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -599,6 +600,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &51548001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51547995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec3849f567c25d469e719dafe135887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &58552588
 GameObject:
   m_ObjectHideFlags: 0
@@ -6643,7 +6657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103fb7016429cc44f82467abb17535b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: SampleScene
+  sceneToLoad: sunny level
 --- !u!114 &860019992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14448,14 +14462,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56ab9e0b4a038141a77eef38453ea6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptyStar: {fileID: 21300000, guid: a7954321ad251e7459c4de1318799ed5, type: 3}
+  filledStar: {fileID: 21300000, guid: 74111266d930cb4488fc724974ac5b3f, type: 3}
   starImages:
   - {fileID: 607027269}
   - {fileID: 1962353273}
   - {fileID: 1459830232}
   - {fileID: 1763049478}
   - {fileID: 2053463441}
-  filledStar: {fileID: 21300000, guid: 74111266d930cb4488fc724974ac5b3f, type: 3}
-  emptyStar: {fileID: 21300000, guid: a7954321ad251e7459c4de1318799ed5, type: 3}
+  starCanvas: {fileID: 1484416608}
+  maxScore: 40
 --- !u!1 &2074831988
 GameObject:
   m_ObjectHideFlags: 0

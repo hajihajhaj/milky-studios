@@ -24,18 +24,36 @@ public class WinScreenStars : MonoBehaviour
             return;
         }
 
-        Debug.Log("? Enabling WIN panel");
-        starCanvas.SetActive(true); // Shows the "win" panel
+        starCanvas.SetActive(true);
 
         int score = DeliveryScoreManager.Instance.GetScore();
-        int stars = Mathf.Clamp(Mathf.FloorToInt((score / (float)maxScore) * 4), 0, 4); // 4-star max
+        int baseStars = Mathf.Clamp(Mathf.FloorToInt((score / (float)maxScore) * 4), 0, 4); // Max 4 stars from score
 
-        Debug.Log($"? Showing stars! Score: {score}, Stars: {stars}");
+        int stars = baseStars;
 
+        // ? Check for 5th star: must have full score + under 60s
+        float timeTaken = Time.timeSinceLevelLoad;
+        bool deliveredAll = score >= maxScore;
+
+        if (deliveredAll && timeTaken < 60f)
+        {
+            stars++;
+            Debug.Log($"?? Bonus star! Delivered all packages in {timeTaken:F1}s");
+        }
+
+        // Clamp stars to 5 just in case
+        stars = Mathf.Clamp(stars, 0, 5);
+
+        // Log result
+        Debug.Log($"? Showing stars! Score: {score}, Time: {timeTaken:F1}s, Stars: {stars}");
+
+        // Update visuals
         for (int i = 0; i < starImages.Length; i++)
         {
             starImages[i].sprite = i < stars ? filledStar : emptyStar;
         }
     }
+
+
 
 }

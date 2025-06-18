@@ -12852,7 +12852,7 @@ MonoBehaviour:
   - {fileID: 73144799}
   - {fileID: 670331026}
   starCanvas: {fileID: 1786697781}
-  maxScore: 50
+  maxScore: 40
 --- !u!1 &1736421728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2019719340584761734, guid: c64c8f42242115e46a0cadfb9a68cc99, type: 3}
