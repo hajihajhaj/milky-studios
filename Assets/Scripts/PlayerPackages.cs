@@ -6,10 +6,13 @@ public class PlayerPackages : MonoBehaviour
     public int maxPackages = 4;
     public int currentPackages;
     public int packagesDelivered = 0; // NEW
+    public static PlayerPackages Instance;
+
 
     void Start()
     {
         currentPackages = maxPackages;
+        Instance = this;
     }
 
     public void TakeDamage(int amount)
@@ -41,10 +44,15 @@ public class PlayerPackages : MonoBehaviour
         if (currentPackages > 0)
         {
             packagesDelivered++;
-            currentPackages--; // reduce box
+            currentPackages--;
+
+            // ? Add score!
+            DeliveryScoreManager.Instance.AddScore(10);
+
             Debug.Log("Package Delivered! Total: " + packagesDelivered);
         }
     }
+
 
     void Die()
     {

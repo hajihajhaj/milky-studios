@@ -10,8 +10,18 @@ public class Headquarters : MonoBehaviour
         if (!hasTriggered && other.CompareTag("Player"))
         {
             hasTriggered = true;
+
+            // ? Show level complete UI
             levelUI.ShowLevelComplete();
-            Debug.Log("? Player reached HQ — level complete screen shown.");
+
+            // ? Show star UI
+            WinScreenStars starUI = FindObjectOfType<WinScreenStars>();
+            if (starUI != null)
+                starUI.ShowStars();
+            else
+                Debug.LogWarning("?? EndStarsUI not found in scene!");
+
+            Debug.Log("? Player reached HQ — level complete screen and stars shown.");
         }
     }
 }

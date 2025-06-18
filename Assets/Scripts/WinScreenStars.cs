@@ -3,20 +3,39 @@ using UnityEngine.UI;
 
 public class WinScreenStars : MonoBehaviour
 {
-    public Image[] starImages;          // Drag the star image UI elements in the Inspector
-    public Sprite filledStar;           // Assign your filled star sprite
-    public Sprite emptyStar;            // Assign your empty star sprite
+    public Sprite emptyStar;
+    public Sprite filledStar;
+    public Image[] starImages;
+
+    public GameObject starCanvas;
+    public int maxScore = 40; // Full score gets 5 stars
 
     void Start()
     {
-        int stars = PlayerPrefs.GetInt("StarsEarned", 0);  // Default to 0 if not set
+        maxScore = PlayerPackages.Instance.maxPackages * 10;
+        // starCanvas.SetActive(false); // Hide initially
+    }
+
+    public void ShowStars()
+    {
+        if (starCanvas == null)
+        {
+            Debug.LogError("? starCanvas (Win panel) is not assigned!");
+            return;
+        }
+
+        Debug.Log("? Enabling WIN panel");
+        starCanvas.SetActive(true); // Shows the "win" panel
+
+        int score = DeliveryScoreManager.Instance.GetScore();
+        int stars = Mathf.Clamp(Mathf.FloorToInt((score / (float)maxScore) * 4), 0, 4); // 4-star max
+
+        Debug.Log($"? Showing stars! Score: {score}, Stars: {stars}");
 
         for (int i = 0; i < starImages.Length; i++)
         {
-            if (i < stars)
-                starImages[i].sprite = filledStar;
-            else
-                starImages[i].sprite = emptyStar;
+            starImages[i].sprite = i < stars ? filledStar : emptyStar;
         }
     }
+
 }
