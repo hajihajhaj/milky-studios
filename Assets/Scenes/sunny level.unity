@@ -14472,6 +14472,7 @@ MonoBehaviour:
   - {fileID: 2053463441}
   starCanvas: {fileID: 1484416608}
   maxScore: 40
+  currentLevelIndex: 1
 --- !u!1 &2074831988
 GameObject:
   m_ObjectHideFlags: 0
